@@ -1,6 +1,8 @@
 import { DataSource } from "typeorm";
 import dotenv from "dotenv";
 import { Menu } from "../entity/Menu.entity";
+import { Role } from "../entity/role.entity";
+import { User } from "../entity/user.entity";
 
 dotenv.config();
 
@@ -14,7 +16,7 @@ export const AppDataSource = new DataSource({
   synchronize: true,
   logging: false,
   // entities: ["src/entity/**/*.ts"],
-  entities: [Menu],
+  entities: [Menu, Role, User],
   migrations: ["src/migration/**/*.ts"],
   subscribers: ["src/subscriber/**/*.ts"],
 })

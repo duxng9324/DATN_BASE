@@ -30,7 +30,7 @@ export class MenuController {
   delete = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const { id } = req.params; // UUID
-      await this.menuService.delete(id as any); // ⚠️ sẽ fix bên dưới
+      await this.menuService.delete(id as string);
       res.status(204).send();
     } catch (error) {
       next(error);

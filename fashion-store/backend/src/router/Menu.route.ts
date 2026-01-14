@@ -1,12 +1,13 @@
 import { Router } from "express";
 import { MenuController } from "../controller/Menu.controller";
+import { authGuard } from "../middleware/auth.middleware";
 
 const menuRouter = Router();
 const menuController = new MenuController();
 
-menuRouter.post("/", menuController.create);
-menuRouter.put("/:id", menuController.update);
-menuRouter.delete("/:id", menuController.delete);
+menuRouter.post("/", authGuard, menuController.create);
+menuRouter.put("/:id", authGuard, menuController.update);
+menuRouter.delete("/:id", authGuard, menuController.delete);
 menuRouter.get("/", menuController.findAll);
 menuRouter.get("/tree", menuController.findTree);
 menuRouter.get("/full-tree", menuController.findFullTree);

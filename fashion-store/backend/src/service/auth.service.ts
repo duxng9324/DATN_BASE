@@ -8,6 +8,7 @@ import { RoleType } from "../types/RoleType.enum";
 import { LoginDto } from "../dto/loginRequest";
 import jwt, { SignOptions } from "jsonwebtoken";
 import { AppError } from "../common/errors/AppError";
+import { Cart } from "../entity/cart.entity";
 
 export class AuthService {
   private userRepo: Repository<User>;

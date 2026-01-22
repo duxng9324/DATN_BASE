@@ -1,0 +1,7 @@
+export enum MediaOwnerType {
+  PRODUCT = 'PRODUCT',
+  PRODUCT_VARIANT = 'PRODUCT_VARIANT',
+  USER = 'USER',
+  CATEGORY = 'CATEGORY',
+  BLOG = 'BLOG',
+}

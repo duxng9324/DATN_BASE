@@ -1,4 +1,4 @@
-import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from "typeorm";
 import { RoleType } from "../types/RoleType.enum";
 import { User } from "./user.entity";
 
@@ -17,4 +17,10 @@ export class Role {
     @ManyToMany(() => User, user => user.roles)
     @JoinTable()
     users!: User[];
+
+    @CreateDateColumn()
+    createdAt!: Date
+
+    @UpdateDateColumn()
+    updatedAt!: Date
 }

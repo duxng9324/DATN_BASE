@@ -6,6 +6,8 @@ import {
   OneToMany,
   JoinColumn,
   Index,
+  CreateDateColumn,
+  UpdateDateColumn,
 } from "typeorm";
 import { MenuType } from "../types/MenuType.enum";
 
@@ -67,13 +69,9 @@ export class Menu {
 
   /* ================= TIMESTAMP ================= */
 
-  @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
+  @CreateDateColumn()
   createdAt!: Date;
 
-  @Column({
-    type: "timestamp",
-    default: () => "CURRENT_TIMESTAMP",
-    onUpdate: "CURRENT_TIMESTAMP",
-  })
+  @UpdateDateColumn()
   updatedAt!: Date;
 }
